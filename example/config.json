@@ -23,5 +23,6 @@
   ],
   "lintianOverrides": [
     "changelog-file-missing-in-native-package"
-  ]
+  ],
+  "compressionType": "xz"
 }

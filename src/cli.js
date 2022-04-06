@@ -33,6 +33,7 @@ const argv = yargs
   .options('options.categories', { array: true, hidden: true })
   .options('options.mimeType', { array: true, hidden: true })
   .options('options.lintianOverrides', { array: true, hidden: true })
+  .options('options.compressionType', { string: true, hidden: true })
   .example('$0 --src dist/app/ --dest dist/installer/ --arch i386', 'use metadata from `dist/app/`')
   .example('$0 --src dist/app/ --dest dist/installer/ --config config.json', 'use metadata from `config.json`')
   .wrap(null)
