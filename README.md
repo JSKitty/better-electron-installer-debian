@@ -1,17 +1,17 @@
 ![Electron Installer for Debian](resources/logo.png)
 
-# electron-installer-debian [![Version](https://img.shields.io/npm/v/electron-installer-debian.svg)](https://www.npmjs.com/package/electron-installer-debian) [![Build Status](https://img.shields.io/travis/electron-userland/electron-installer-debian.svg)](http://travis-ci.org/electron-userland/electron-installer-debian)
+# electron-installer-debian [![Version](https://img.shields.io/npm/v/electron-installer-debian.svg)](https://www.npmjs.com/package/electron-installer-debian)
 
-> Create a Debian package for your Electron app.
+> Create a (better) Debian package for your Electron app.
 
 ----
 
 [Usage](#usage) |
 [Options](#options) |
-[Release Notes](https://github.com/electron-userland/electron-installer-debian/blob/main/NEWS.md) |
-[License](https://github.com/electron-userland/electron-installer-debian/blob/main/LICENSE) |
-[Code of Conduct](https://github.com/electron-userland/electron-installer-debian/blob/main/CODE_OF_CONDUCT.md) |
-[Support](https://github.com/electron-userland/electron-installer-debian/blob/main/SUPPORT.md)
+[Release Notes](https://github.com/JSKitty/better-electron-installer-debian/blob/main/NEWS.md) |
+[License](https://github.com/JSKitty/better-electron-installer-debian/blob/main/LICENSE) |
+[Code of Conduct](https://github.com/JSKitty/better-electron-installer-debian/blob/main/CODE_OF_CONDUCT.md) |
+[Support](https://github.com/JSKitty/better-electron-installer-debian/blob/main/SUPPORT.md)
 
 ## Requirements
 
@@ -94,7 +94,7 @@ How do you turn that into a Debian package that your users can install?
 
 ### Command-Line
 
-If you want to run `electron-installer-debian` straight from the command-line, install the package globally:
+If you want to run `better-electron-installer-debian` straight from the command-line, install the package globally:
 
 ```
 $ npm install -g electron-installer-debian
@@ -110,7 +110,7 @@ You'll end up with the package at `dist/installers/app_0.0.1_amd64.deb`.
 
 ### Scripts
 
-If you want to run `electron-installer-debian` through npm, install the package locally:
+If you want to run `better-electron-installer-debian` through npm, install the package locally:
 
 ```
 $ npm install --save-dev electron-installer-debian
@@ -126,10 +126,10 @@ Edit the `scripts` section of your `package.json`:
   "scripts": {
     "start": "electron .",
     "build": "electron-packager . app --platform linux --arch x64 --out dist/",
-    "deb64": "electron-installer-debian --src dist/app-linux-x64/ --dest dist/installers/ --arch amd64"
+    "deb64": "better-electron-installer-debian --src dist/app-linux-x64/ --dest dist/installers/ --arch amd64"
   },
   "devDependencies": {
-    "electron-installer-debian": "^0.6.0",
+    "better-electron-installer-debian": "^0.6.0",
     "electron-packager": "^9.0.0",
     "electron": "~1.7.0"
   }
@@ -158,7 +158,7 @@ $ npm install --save-dev electron-installer-debian
 And write something like this:
 
 ```javascript
-const installer = require('electron-installer-debian')
+const installer = require('better-electron-installer-debian')
 
 const options = {
   src: 'dist/app-linux-x64/',
@@ -240,7 +240,7 @@ According to the *Debian Policy Manual*:
 
 > Package names [...] must consist only of lower case letters (a-z), digits (0-9), plus (+) and minus (-) signs, and periods (.). They must be at least two characters long and must start with an alphanumeric character.
 
-`electron-installer-debian` will try to help conform to these requirements by lowercasing the name
+`better-electron-installer-debian` will try to help conform to these requirements by lowercasing the name
 provided and replacing any invalid characters with `-`s.
 
 #### options.productName
@@ -311,7 +311,7 @@ Estimate of the total amount of disk space required to install the named package
 
 #### options.depends, recommends, suggests, enhances, preDepends
 Type: `Array[String]`
-Default: For `depends`, the minimum set of packages necessary for Electron to run; See [source code](https://github.com/electron-userland/electron-installer-debian/blob/53fb5c5/src/installer.js#L146-L157) for `recommends`, `suggests`, `enhances`, and `preDepends` default values
+Default: For `depends`, the minimum set of packages necessary for Electron to run; See [source code](https://github.com/JSKitty/better-electron-installer-debian/blob/53fb5c5/src/installer.js#L146-L157) for `recommends`, `suggests`, `enhances`, and `preDepends` default values
 
 Relationships to other packages, used in the [`Depends`, `Recommends`, `Suggests`, `Enhances` and `Pre-Depends` fields of the `control` specification](https://www.debian.org/doc/debian-policy/#binary-dependencies-depends-recommends-suggests-enhances-pre-depends).
 
@@ -362,7 +362,7 @@ Exec=foo %U
 
 #### options.icon
 Type: `String` or `Object[String:String]`
-Default: [`resources/icon.png`](https://github.com/electron-userland/electron-installer-debian/blob/main/resources/icon.png)
+Default: [`resources/icon.png`](https://github.com/JSKitty/better-electron-installer-debian/blob/main/resources/icon.png)
 
 Path to a single image that will act as icon for the application:
 
@@ -433,7 +433,7 @@ You can read more about [package maintainer scripts](https://www.debian.org/doc/
 
 #### options.desktopTemplate
 Type: `String`
-Default: [`resources/desktop.ejs`](https://github.com/electron-userland/electron-installer-debian/blob/main/resources/desktop.ejs)
+Default: [`resources/desktop.ejs`](https://github.com/JSKitty/better-electron-installer-debian/blob/main/resources/desktop.ejs)
 
 The absolute path to a custom template for the generated [FreeDesktop.org desktop
 entry](http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html) file.
@@ -442,20 +442,21 @@ entry](http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-la
 
 The package installs the Electron application into `/usr/lib`, since there are
 architecture-specific files in the package. There was a [discussion in the issue
-tracker](https://github.com/electron-userland/electron-installer-debian/issues/46) about the
+tracker](https://github.com/JSKitty/better-electron-installer-debian/issues/46) about the
 installation directory.
 
-In versions of `electron-installer-debian` prior to 0.5.0, the app was (incorrectly) installed in
+In versions of `better-electron-installer-debian` prior to 0.5.0, the app was (incorrectly) installed in
 `/usr/share`.
 
 ## Meta
 
-* Code: `git clone git://github.com/electron-userland/electron-installer-debian.git`
-* Home: <https://github.com/electron-userland/electron-installer-debian/>
+* Code: `git clone git://github.com/JSKitty/better-electron-installer-debian.git`
+* Home: <https://github.com/JSKitty/better-electron-installer-debian/>
 
 
 ## Contributors
 
+* JSKitty ([jskitty@protonmail.com](mailto:jskitty@protonmail.com))
 * Daniel Perez Alvarez ([unindented@gmail.com](mailto:unindented@gmail.com))
 
 

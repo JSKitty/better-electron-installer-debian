@@ -14,7 +14,7 @@ const wrap = require('word-wrap')
 const debianDependencies = require('./dependencies')
 const spawn = require('./spawn')
 
-const defaultLogger = debug('electron-installer-debian')
+const defaultLogger = debug('better-electron-installer-debian')
 
 const defaultRename = (dest, src) => {
   return path.join(dest, '<%= name %>_<%= version %><% if (revision) { %>-<%= revision %><% } %>_<%= arch %>.deb')

@@ -39,4 +39,4 @@ jobs:
       - name: Test
         run: npm test
         env:
-          DEBUG: 'electron-installer-debian'
+          DEBUG: 'better-electron-installer-debian'

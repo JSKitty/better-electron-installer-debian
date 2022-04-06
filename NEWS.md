@@ -1,4 +1,4 @@
-# `electron-installer-debian` - Changes by Version
+# `better-electron-installer-debian` - Changes by Version
 
 ## [Unreleased]
 

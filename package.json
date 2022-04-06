@@ -1,16 +1,16 @@
 {
-  "name": "electron-installer-debian",
-  "description": "Create a Debian package for your Electron app.",
-  "version": "3.1.0",
+  "name": "better-electron-installer-debian",
+  "description": "Create a (better) Debian package for your Electron app.",
+  "version": "3.2.0",
   "license": "MIT",
   "author": {
-    "name": "Daniel Perez Alvarez",
-    "email": "unindented@gmail.com",
-    "url": "http://unindented.org/"
+    "name": "JSKitty",
+    "email": "jskitty@protonmail.com",
+    "url": "https://stakecube.net/"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/electron-userland/electron-installer-debian.git"
+    "url": "git://github.com/JSKitty/better-electron-installer-debian.git"
   },
   "keywords": [
     "electron",
@@ -22,7 +22,7 @@
   ],
   "main": "src/installer.js",
   "bin": {
-    "electron-installer-debian": "src/cli.js"
+    "better-electron-installer-debian": "src/cli.js"
   },
   "files": [
     "bin",
