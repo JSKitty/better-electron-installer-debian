@@ -111,7 +111,7 @@ class DebianInstaller extends common.ElectronInstaller {
   async createPackage () {
     this.options.logger(`Creating package at ${this.stagingDir}`)
 
-    const command = ['--build', this.stagingDir]
+    const command = ['--build', '-Z' + this.options.compressionType, this.stagingDir]
     if (process.platform === 'darwin') {
       command.unshift('--root-owner-group')
     }
@@ -142,7 +142,8 @@ class DebianInstaller extends common.ElectronInstaller {
       maintainer: this.getMaintainer(pkg.author),
 
       icon: path.resolve(__dirname, '../resources/icon.png'),
-      lintianOverrides: []
+      lintianOverrides: [],
+      compressionType: 'xz'
     }, debianDependencies.forElectron(electronVersion))
 
     return this.defaults

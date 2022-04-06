@@ -163,7 +163,8 @@ const installer = require('electron-installer-debian')
 const options = {
   src: 'dist/app-linux-x64/',
   dest: 'dist/installers/',
-  arch: 'amd64'
+  arch: 'amd64',
+  compressionType: 'xz'
 }
 
 async function main (options) {
@@ -179,7 +180,7 @@ async function main (options) {
 main(options)
 ```
 
-You'll end up with the package at `dist/installers/app_0.0.1_amd64.deb`.
+You'll end up with the package at `dist/installers/app_0.0.1_amd64.deb`, compressed with the `.xz` format.
 
 _Note: As of 1.0.0, the Node-style callback pattern is no longer available. You can use
 [`util.callbackify`](https://nodejs.org/api/util.html#util_util_callbackify_original) if this is
@@ -198,7 +199,8 @@ Even though you can pass most of these options through the command-line interfac
   ],
   "lintianOverrides": [
     "changelog-file-missing-in-native-package"
-  ]
+  ],
+  "compressionType": "xz"
 }
 ```
 
@@ -404,6 +406,12 @@ Type: `Array[String]`
 Default: `[]`
 
 You can use these to quieten [`lintian`](https://lintian.debian.org/manual/).
+
+#### options.compressionType
+Type: `String`
+Default: `xz`
+
+The compression algorithm to use for the packaged `.deb`, this can be any [supported algorithm](https://wiki.debian.org/Teams/Dpkg/DebSupport) by the `dpkg-deb` utility.
 
 #### options.scripts
 Type: `Object[String:String]`
