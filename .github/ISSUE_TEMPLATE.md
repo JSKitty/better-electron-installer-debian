@@ -10,7 +10,7 @@
 
 ```
 $ git clone https://github.com/JSKitty/better-electron-installer-debian.git
-$ cd electron-installer-debian/example
+$ cd better-electron-installer-debian/example
 $ DEBUG='better-electron-installer-debian' npm run build
 ```
 

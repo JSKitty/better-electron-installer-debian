@@ -1,6 +1,6 @@
 ![Electron Installer for Debian](resources/logo.png)
 
-# electron-installer-debian [![Version](https://img.shields.io/npm/v/electron-installer-debian.svg)](https://www.npmjs.com/package/electron-installer-debian)
+# better-electron-installer-debian [![Version](https://img.shields.io/npm/v/better-electron-installer-debian.svg)](https://www.npmjs.com/package/better-electron-installer-debian)
 
 > Create a (better) Debian package for your Electron app.
 
@@ -29,13 +29,13 @@ $ brew install fakeroot dpkg
 For use from command-line:
 
 ```
-$ npm install -g electron-installer-debian
+$ npm install -g better-electron-installer-debian
 ```
 
 For use in npm scripts or programmatically:
 
 ```
-$ npm install --save-dev electron-installer-debian
+$ npm install --save-dev better-electron-installer-debian
 ```
 
 
@@ -97,13 +97,13 @@ How do you turn that into a Debian package that your users can install?
 If you want to run `better-electron-installer-debian` straight from the command-line, install the package globally:
 
 ```
-$ npm install -g electron-installer-debian
+$ npm install -g better-electron-installer-debian
 ```
 
 And point it to your built app:
 
 ```
-$ electron-installer-debian --src dist/app-linux-x64/ --dest dist/installers/ --arch amd64
+$ better-electron-installer-debian --src dist/app-linux-x64/ --dest dist/installers/ --arch amd64
 ```
 
 You'll end up with the package at `dist/installers/app_0.0.1_amd64.deb`.
@@ -113,7 +113,7 @@ You'll end up with the package at `dist/installers/app_0.0.1_amd64.deb`.
 If you want to run `better-electron-installer-debian` through npm, install the package locally:
 
 ```
-$ npm install --save-dev electron-installer-debian
+$ npm install --save-dev better-electron-installer-debian
 ```
 
 Edit the `scripts` section of your `package.json`:
@@ -152,7 +152,7 @@ You'll end up with the package at `dist/installers/app_0.0.1_amd64.deb`.
 Install the package locally:
 
 ```
-$ npm install --save-dev electron-installer-debian
+$ npm install --save-dev better-electron-installer-debian
 ```
 
 And write something like this:
@@ -207,7 +207,7 @@ Even though you can pass most of these options through the command-line interfac
 And pass that instead with the `config` option:
 
 ```
-$ electron-installer-debian --src dist/app-linux-x64/ --arch amd64 --config config.json
+$ better-electron-installer-debian --src dist/app-linux-x64/ --arch amd64 --config config.json
 ```
 
 Anyways, here's the full list of options:
